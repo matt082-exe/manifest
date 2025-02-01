@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgb(0, 0, 0);
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            color: white;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: black;
+            color: white;
+        }
+        button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #ff0000;
+        }
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Download ZIP by ID</h2>
+        <input type="text" id="idInput" placeholder="Enter ID or SteamDB URL...">
+        <button onclick="openURL()">Open URL</button>
+        <button onclick="redirectToSteamDB()">Get ID's</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function openURL() {
+            const input = document.getElementById('idInput').value.trim();
+            let id;
+
+            // Check if the input is a SteamDB URL
+            const steamdbRegex = /https:\/\/steamdb\.info\/app\/(\d+)/;
+            const match = input.match(steamdbRegex);
+
+            if (match) {
+                // Extract ID from SteamDB URL
+                id = match[1];
+            } else {
+                // If not a SteamDB URL, use the input as the ID
+                id = input;
+            }
+
+            if (!id) {
+                alert("Please enter a valid ID or SteamDB URL.");
+                return;
+            }
+
+            const url = `https://cysaw.top/uploads/${id}.zip`;
+            window.open(url, '_blank');
+        }
+
+        function redirectToSteamDB() {
+            window.open('https://steamdb.info/', '_blank');
+        }
+    </script>
+
+
+</body></html>
