@@ -207,27 +207,19 @@
         }
 
         document.addEventListener("contextmenu", function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Disables right-click
 });
-
 
 document.addEventListener("keydown", function(event) {
-    if (event.key === "F12" || 
+    if (
+        event.key === "F12" || 
         (event.ctrlKey && event.shiftKey && event.key === "I") || 
         (event.ctrlKey && event.shiftKey && event.key === "J") || 
-        (event.ctrlKey && event.key === "U")) {
-        event.preventDefault();
+        (event.ctrlKey && event.key === "U")
+    ) {
+        event.preventDefault(); // Blocks DevTools shortcuts
     }
 });
-
-(function() {
-    function detectDevTools() {
-        if (window.outerHeight - window.innerHeight > 100 || window.outerWidth - window.innerWidth > 100) {
-            document.body.innerHTML = "<h1>Access Denied</h1>";
-        }
-    }
-    setInterval(detectDevTools, 1000);
-})();
     </script>
 </body>
 </html>
