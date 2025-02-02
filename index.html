@@ -55,43 +55,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Download ZIP by ID</h2>
-        <input type="text" id="idInput" placeholder="Enter ID or SteamDB URL...">
-        <button onclick="openURL()">Open URL</button>
-        <button onclick="redirectToSteamDB()">Get ID's</button>
-        <div class="message" id="message"></div>
-    </div>
-
-    <script>
-        function openURL() {
-            const input = document.getElementById('idInput').value.trim();
-            let id;
-
-            // Check if the input is a SteamDB URL
-            const steamdbRegex = /https:\/\/steamdb\.info\/app\/(\d+)/;
-            const match = input.match(steamdbRegex);
-
-            if (match) {
-                // Extract ID from SteamDB URL
-                id = match[1];
-            } else {
-                // If not a SteamDB URL, use the input as the ID
-                id = input;
-            }
-
-            if (!id) {
-                alert("Please enter a valid ID or SteamDB URL.");
-                return;
-            }
-
-            const url = `https://cysaw.top/uploads/${id}.zip`;
-            window.open(url, '_blank');
-        }
-
-        function redirectToSteamDB() {
-            window.open('https://steamdb.info/', '_blank');
-        }
-    </script>
+        <h2>Updating..</h2>
 
 
 </body></html>
