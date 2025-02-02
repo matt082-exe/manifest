@@ -206,8 +206,8 @@
             window.open('https://steamdb.info/', '_blank');
         }
 
-        document.addEventListener("contextmenu", function(event) {
-    event.preventDefault(); // Disables right-click
+document.addEventListener("contextmenu", function(event) {
+    event.preventDefault(); // Disable right-click
 });
 
 document.addEventListener("keydown", function(event) {
@@ -215,9 +215,10 @@ document.addEventListener("keydown", function(event) {
         event.key === "F12" || 
         (event.ctrlKey && event.shiftKey && event.key === "I") || 
         (event.ctrlKey && event.shiftKey && event.key === "J") || 
+        (event.ctrlKey && event.shiftKey && event.key === "C") || 
         (event.ctrlKey && event.key === "U")
     ) {
-        event.preventDefault(); // Blocks DevTools shortcuts
+        event.preventDefault(); // Block DevTools shortcuts
     }
 });
     </script>
